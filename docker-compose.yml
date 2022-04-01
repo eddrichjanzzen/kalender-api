@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     depends_on:
       db:
-        condition: service_healthy 
+        condition: service_healthy
     restart: always
   db:
     image: postgres
@@ -23,7 +23,7 @@ services:
       - "5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
       retries: 5
 volumes:
