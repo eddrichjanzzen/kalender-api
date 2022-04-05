@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'events.apps.EventsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,6 +73,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'kalenderApi.wsgi.application'
 
 
+REST_FRAMEWORK = {
+    # Allow rest framework to accept unix timestamps
+    'DATETIME_FORMAT': '%s000',
+}
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -106,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-AUTH_USER_MODEL = 'events.User'
+# AUTH_USER_MODEL = 'core.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
